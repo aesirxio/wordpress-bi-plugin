@@ -75,7 +75,7 @@ add_action('admin_enqueue_scripts', function () {
         window.env.REACT_APP_CLIENT_SECRET = "<?php echo $options['aesirx_bi_domain_react_app_client_secret'] ?>";
         window.env.REACT_APP_ENDPOINT_URL = "<?php echo $options['aesirx_bi_domain_react_app_endpoint_url'] ?>";
         window.env.REACT_APP_LICENSE = "<?php echo $options['aesirx_bi_domain_react_app_license'] ?>";
-        window.env.REACT_APP_DATA_STREAM = "<?php echo $options['aesirx_bi_domain_react_app_data_stream'] ?>";
+        window.env.REACT_APP_DATA_STREAM = <?php echo json_encode($options['aesirx_bi_domain_react_app_data_stream']) ?>;
     </script>
     <%= htmlWebpackPlugin.tags.headTags %>
     <?php

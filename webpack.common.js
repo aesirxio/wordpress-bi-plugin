@@ -64,6 +64,7 @@ const jsLoader = {
 
 const aliasData = {
   src: path.resolve(__dirname, './src'),
+  react$: require.resolve(path.resolve(__dirname, './node_modules/react')),
 };
 
 const cssLoader = {
