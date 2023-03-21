@@ -77,5 +77,6 @@ add_action('admin_enqueue_scripts', function () {
         window.env.REACT_APP_LICENSE = "<?php echo $options['aesirx_bi_domain_react_app_license'] ?>";
         window.env.REACT_APP_DATA_STREAM = "<?php echo $options['aesirx_bi_domain_react_app_data_stream'] ?>";
     </script>
+    <%= htmlWebpackPlugin.tags.headTags %>
     <?php
 });
