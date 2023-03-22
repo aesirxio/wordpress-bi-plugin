@@ -68,6 +68,14 @@ module.exports = (env, argv) => {
                   process.env.projectname +
                   '/includes/dashboard.php',
               },
+              {
+                source: path.resolve(
+                  __dirname,
+                  './assets/images/'
+                ),
+                destination:
+                  pluginPath + '/wp-content/plugins/' + process.env.projectname + '/assets/images',
+              },
             ],
           },
         },
