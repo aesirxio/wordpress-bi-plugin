@@ -67,6 +67,7 @@ add_action('admin_menu', function () {
 });
 
 add_action('admin_enqueue_scripts', function () {
+    global $wp;
     $options = get_option('aesirx_bi_plugin_options');
     ?>
     <script>
@@ -76,6 +77,7 @@ add_action('admin_enqueue_scripts', function () {
         window.env.REACT_APP_ENDPOINT_URL = "<?php echo $options['aesirx_bi_domain_react_app_endpoint_url'] ?>";
         window.env.REACT_APP_LICENSE = "<?php echo $options['aesirx_bi_domain_react_app_license'] ?>";
         window.env.REACT_APP_DATA_STREAM = <?php echo json_encode($options['aesirx_bi_domain_react_app_data_stream']) ?>;
+        window.env.PUBLIC_URL="/wp-content/plugins/aesirx-bi";
     </script>
     <%= htmlWebpackPlugin.tags.headTags %>
     <?php
