@@ -5,6 +5,7 @@ const WebpackAssetsManifest = require('webpack-assets-manifest');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const { ProvidePlugin } = require('webpack');
 
 const {
   wwwDir,
@@ -31,7 +32,11 @@ module.exports = (env, argv) => {
 
   var config = {
     entry: './assets/index.js',
+
     plugins: [
+      new ProvidePlugin({
+        process: 'process/browser',
+      }),
       new HtmlWebpackPlugin({
         inject: false,
         filename:
@@ -119,7 +124,7 @@ module.exports = (env, argv) => {
       new BrowserSyncPlugin(
         // BrowserSync options
         {
-          proxy: process.env.projectname + '.local',
+          proxy: 'http://wordpress.local/',
           notify: true,
         }
       ),
