@@ -82,7 +82,6 @@ module.exports = (env, argv) => {
       path: pluginPath + '/wp-content/plugins/' + process.env.projectname + '/',
       publicPath: '/wp-content/plugins/' + process.env.projectname + '/',
       clean: true,
-      globalObject: 'this',
     },
 
     module: {

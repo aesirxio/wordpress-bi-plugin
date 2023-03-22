@@ -13,7 +13,7 @@
   "license": "GPL-3.0-only",
   "author": "AesirX",
   "dependencies": {
-    "aesirx-bi-app": "file:/Volumes/T7/Projects/bi-app",
+    "aesirx-bi-app": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
