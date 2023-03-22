@@ -125,7 +125,7 @@ module.exports = (env, argv) => {
       new BrowserSyncPlugin(
         // BrowserSync options
         {
-          proxy: process.env.projectname + '.local',
+          proxy: 'http://wordpress.local/',
           notify: true,
         }
       ),

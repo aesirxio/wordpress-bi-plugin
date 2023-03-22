@@ -6,13 +6,14 @@
   "scripts": {
     "build": "webpack --mode=development",
     "watch": "webpack --watch --mode=development",
-    "release": "webpack --mode=production  --env deploy=true",
+    "release": "webpack --mode=development  --env deploy=true",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "license": "GPL-3.0-only",
   "author": "AesirX",
   "dependencies": {
+    "aesirx-bi-app": "file:/Volumes/T7/Projects/bi-app",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -39,6 +40,7 @@
     "postcss": "^8.4.21",
     "postcss-loader": "^7.1.0",
     "prettier": "^2.8.6",
+    "process": "^0.11.10",
     "sass": "^1.59.3",
     "sass-loader": "^13.2.1",
     "style-loader": "^3.3.2",
