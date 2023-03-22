@@ -6,10 +6,7 @@ const wwwDir = path.resolve(__dirname, './dist');
 const projectname = 'aesirx-bi';
 
 const sassData = {
-  loader: 'sass-loader',
-  options: {
-    additionalData: `@import "src/scss/utils/bootstrap";`,
-  },
+  loader: 'sass-loader'
 };
 
 const sassLoader = {
