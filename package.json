@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode=development",
     "watch": "webpack --watch --mode=development",
-    "release": "webpack --mode=development  --env deploy=true",
+    "release": "webpack --mode=production --env deploy=true",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

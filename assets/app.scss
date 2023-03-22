@@ -1,0 +1,28 @@
+#biapp{
+    margin-left: -20px;
+
+    #all_header
+    {
+        top: 30px !important;
+        width: calc(100% - 161px) !important;
+    }
+
+    .main_content{
+        padding-top: 110px !important;
+    }
+
+    .arrow
+    {
+        position: static !important;
+    }
+}
+
+#wpfooter
+{
+    display: none;
+}
+
+#wpbody-content
+{
+    padding-bottom: 0 !important;
+}
