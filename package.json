@@ -1,5 +1,5 @@
 {
-  "name": "aesirx-bi",
+  "name": "wordpress-bi-plugin",
   "version": "1.0.0",
   "description": "AesirX BI Wordpres plugin",
   "private": true,
@@ -7,18 +7,24 @@
     "build": "webpack --mode=development",
     "watch": "webpack --watch --mode=development",
     "release": "webpack --mode=production --env deploy=true",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format:check": "prettier --check 'assets/**/*.{js,jsx,ts,tsx}'",
+    "format:write": "prettier --write 'assets/**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint --fix \"assets/**/\"",
+    "lint:check": "eslint \"assets/**/\"",
+    "lint:nowarns": "eslint --quiet \"assets/**/\""
   },
   "keywords": [],
   "license": "GPL-3.0-only",
   "author": "AesirX",
   "dependencies": {
-    "aesirx-bi-app": "^1.1.0",
+    "aesirx-bi-app": "^1.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
+    "@babel/eslint-parser": "^7.21.3",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
     "@popperjs/core": "^2.11.6",
@@ -32,6 +38,8 @@
     "cssnano": "^5.1.15",
     "del": "^7.0.0",
     "dotenv": "^16.0.3",
+    "eslint": "^8.36.0",
+    "eslint-plugin-react": "^7.32.2",
     "filemanager-webpack-plugin": "^8.0.0",
     "html-webpack-plugin": "^5.5.0",
     "html-webpack-skip-assets-plugin": "^1.0.3",

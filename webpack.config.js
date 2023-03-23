@@ -169,7 +169,7 @@ module.exports = (env, argv) => {
             archive: [
               {
                 source: './dist/wp-content/plugins/' + process.env.projectname + '/',
-                destination: './dist/' + process.env.projectname + '.zip',
+                destination: './dist/wordpress-bi-plugin.zip',
               },
             ],
           },
