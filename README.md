@@ -40,4 +40,4 @@ In WP Admin, go to Settings - AesirX BI and config the settings:
 
 ### Release
 
-Run `yarn release` and install `wordpress-bi-plugin.zip` file on `dist` folder to WP.
+Run `yarn release` and install `aesirx-bi.zip` file on `dist` folder to WP.
