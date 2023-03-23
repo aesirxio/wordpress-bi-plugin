@@ -132,7 +132,7 @@ module.exports = (env, argv) => {
       new BrowserSyncPlugin(
         // BrowserSync options
         {
-          proxy: 'http://wordpress.local/',
+          proxy: process.env.proxy,
           notify: true,
         }
       ),
