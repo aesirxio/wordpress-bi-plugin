@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import 'aesirx-bi-app/dist/index.css';
 import 'aesirx-bi-app/dist/app.css';
 import './app.scss';
 
-import { BiIntegration } from 'aesirx-bi-app';
+const BiIntegration = lazy(() => import('./bi.js'));
 
 const BIApp = () => {
-  return <BiIntegration />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <BiIntegration />
+    </Suspense>
+  );
 };
 
 export default BIApp;
