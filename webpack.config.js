@@ -71,7 +71,7 @@ module.exports = (env, argv) => {
               {
                 source: path.resolve(
                   __dirname,
-                  './assets/images/'
+                  './node_modules/aesirx-bi-app/public/assets/images/'
                 ),
                 destination:
                   pluginPath + '/wp-content/plugins/' + process.env.projectname + '/assets/images',
