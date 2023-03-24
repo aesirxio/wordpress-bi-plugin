@@ -1,28 +1,31 @@
-#biapp{
-    margin-left: -20px;
+#biapp {
+  margin-left: -20px;
 
-    #all_header
-    {
-        top: 30px !important;
-        width: calc(100% - 161px) !important;
-    }
+  #all_header {
+    top: 30px !important;
+    width: calc(100% - 161px) !important;
+  }
 
-    .main_content{
-        padding-top: 110px !important;
-    }
+  .main_content {
+    padding-top: 110px !important;
+  }
 
-    .arrow
-    {
-        position: static !important;
-    }
+  .arrow {
+    position: static !important;
+  }
+
+  .loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+  }
 }
 
-#wpfooter
-{
-    display: none;
+#wpfooter {
+  display: none;
 }
 
-#wpbody-content
-{
-    padding-bottom: 0 !important;
+#wpbody-content {
+  padding-bottom: 0 !important;
 }

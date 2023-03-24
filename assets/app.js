@@ -2,12 +2,13 @@ import React, { lazy, Suspense } from 'react';
 import 'aesirx-bi-app/dist/index.css';
 import 'aesirx-bi-app/dist/app.css';
 import './app.scss';
+import Spinner from './Spinner';
 
 const BiIntegration = lazy(() => import('./bi.js'));
 
 const BIApp = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Spinner />}>
       <BiIntegration />
     </Suspense>
   );
