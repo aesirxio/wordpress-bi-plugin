@@ -24,7 +24,6 @@ module.exports = (env, argv) => {
   if (env != undefined && env.deploy) {
     process.env = {
       wwwDir: wwwDir,
-      projectname: projectname,
     };
   }
 
@@ -39,9 +38,8 @@ module.exports = (env, argv) => {
       }),
       new HtmlWebpackPlugin({
         inject: false,
-        filename:
-          pluginPath + '/wp-content/plugins/' + process.env.projectname + '/includes/settings.php',
-        template: './wp-content/plugins/' + process.env.projectname + '/includes/settings.php',
+        filename: pluginPath + '/wp-content/plugins/' + projectname + '/includes/settings.php',
+        template: './wp-content/plugins/' + projectname + '/includes/settings.php',
         minify: false,
       }),
 
@@ -52,29 +50,24 @@ module.exports = (env, argv) => {
               {
                 source: path.resolve(
                   __dirname,
-                  './wp-content/plugins/' + process.env.projectname + '/aesirx-bi.php'
+                  './wp-content/plugins/' + projectname + '/aesirx-bi.php'
                 ),
-                destination:
-                  pluginPath + '/wp-content/plugins/' + process.env.projectname + '/aesirx-bi.php',
+                destination: pluginPath + '/wp-content/plugins/' + projectname + '/aesirx-bi.php',
               },
               {
                 source: path.resolve(
                   __dirname,
-                  './wp-content/plugins/' + process.env.projectname + '/includes/dashboard.php'
+                  './wp-content/plugins/' + projectname + '/includes/dashboard.php'
                 ),
                 destination:
-                  pluginPath +
-                  '/wp-content/plugins/' +
-                  process.env.projectname +
-                  '/includes/dashboard.php',
+                  pluginPath + '/wp-content/plugins/' + projectname + '/includes/dashboard.php',
               },
               {
                 source: path.resolve(
                   __dirname,
                   './node_modules/aesirx-bi-app/public/assets/images/'
                 ),
-                destination:
-                  pluginPath + '/wp-content/plugins/' + process.env.projectname + '/assets/images',
+                destination: pluginPath + '/wp-content/plugins/' + projectname + '/assets/images',
               },
             ],
           },
@@ -83,12 +76,12 @@ module.exports = (env, argv) => {
 
       new WebpackAssetsManifest({
         entrypoints: true,
-        publicPath: '/wp-content/plugins/' + process.env.projectname + '/',
+        publicPath: '/wp-content/plugins/' + projectname + '/',
       }),
     ],
     output: {
-      path: pluginPath + '/wp-content/plugins/' + process.env.projectname + '/',
-      publicPath: '/wp-content/plugins/' + process.env.projectname + '/',
+      path: pluginPath + '/wp-content/plugins/' + projectname + '/',
+      publicPath: '/wp-content/plugins/' + projectname + '/',
       clean: true,
     },
 
@@ -154,8 +147,8 @@ module.exports = (env, argv) => {
           onEnd: {
             archive: [
               {
-                source: './dist/wp-content/plugins/' + process.env.projectname + '/',
-                destination: './dist/' + process.env.projectname + '.zip',
+                source: './dist/wp-content/plugins/' + projectname + '/',
+                destination: './dist/' + projectname + '.zip',
               },
             ],
           },
