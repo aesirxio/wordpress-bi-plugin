@@ -6,19 +6,89 @@ add_action('admin_init', function () {
         'aesirx_bi_plugin_options',
         function ($value) {
             return $value;
-        });
+        }
+    );
     add_settings_section('aesirx_bi_settings', 'Aesirx BI', function () {
         echo '<p>' . __('Here you can set all the options for using the AesirX BI', 'aesirx-bi') . '</p>';
     }, 'aesirx_bi_plugin');
+
+    add_settings_field('aesirx_bi_domain_react_app_client_id', __('REACT_APP_CLIENT_ID', 'aesirx-bi'), function () {
+        $options = get_option('aesirx_bi_plugin_options', []);
+        echo "<input id='aesirx_bi_domain' name='aesirx_bi_plugin_options[aesirx_bi_domain_react_app_client_id]' type='text' value='" . esc_attr($options['aesirx_bi_domain_react_app_client_id'] ?? '') . "' />";
+    }, 'aesirx_bi_plugin', 'aesirx_bi_settings');
+
+    add_settings_field('aesirx_bi_domain_react_app_client_secret', __('REACT_APP_CLIENT_SECRET', 'aesirx-bi'), function () {
+        $options = get_option('aesirx_bi_plugin_options', []);
+        echo "<input id='aesirx_bi_domain' name='aesirx_bi_plugin_options[aesirx_bi_domain_react_app_client_secret]' type='text' value='" . esc_attr($options['aesirx_bi_domain_react_app_client_secret'] ?? '') . "' />";
+    }, 'aesirx_bi_plugin', 'aesirx_bi_settings');
 
     add_settings_field('aesirx_bi_domain_react_app_endpoint_url', __('REACT_APP_ENDPOINT_URL', 'aesirx-bi'), function () {
         $options = get_option('aesirx_bi_plugin_options', []);
         echo "<input id='aesirx_bi_domain' name='aesirx_bi_plugin_options[aesirx_bi_domain_react_app_endpoint_url]' type='text' value='" . esc_attr($options['aesirx_bi_domain_react_app_endpoint_url'] ?? '') . "' />";
     }, 'aesirx_bi_plugin', 'aesirx_bi_settings');
 
+    add_settings_field('aesirx_bi_domain_react_app_license', __('REACT_APP_LICENSE', 'aesirx-bi'), function () {
+        $options = get_option('aesirx_bi_plugin_options', []);
+        echo "<input id='aesirx_bi_domain' name='aesirx_bi_plugin_options[aesirx_bi_domain_react_app_license]' type='text' value='" . esc_attr($options['aesirx_bi_domain_react_app_license'] ?? '') . "' />";
+    }, 'aesirx_bi_plugin', 'aesirx_bi_settings');
+
     add_settings_field('aesirx_bi_domain_react_app_data_stream', __('REACT_APP_DATA_STREAM', 'aesirx-bi'), function () {
         $options = get_option('aesirx_bi_plugin_options', []);
-        echo "<input id='aesirx_bi_domain' name='aesirx_bi_plugin_options[aesirx_bi_domain_react_app_data_stream]' type='text' value='" . esc_attr($options['aesirx_bi_domain_react_app_data_stream'] ?? '') . "' />";
+
+        echo '<table width="100%" border="0" id="asirx_bi_wp_setting_table" cellspacing="0">
+                <tr>
+                    <th width="50%">' . __('STREAM_NAME', 'aesirx-bi') . '</th>
+                    <th width="50%">' . __('STREAM_DOMAIN', 'aesirx-bi') . '</th>
+                </tr>';
+
+        $rowNumber = 0;
+
+        if (empty(esc_attr($options['aesirx_bi_domain_react_app_data_stream']))) {
+            ?>
+            <tr>
+                <td>
+                    <input class="regular-text ltr" id='aesirx_bi_plugin_options_stream_name_0' name='aesirx_bi_plugin_options[aesirx_bi_domain_react_app_data_stream][stream0][name]' type='text' value='' />
+                </td>
+                <td>
+                    <input class="regular-text ltr" id='aesirx_bi_plugin_options_stream_domain_0' name='aesirx_bi_plugin_options[aesirx_bi_domain_react_app_data_stream][stream0][domain]' type='text' value='' />
+                </td>
+            </tr>
+            <?php
+
+            $rowNumber++;
+        } else {
+            foreach ($options['aesirx_bi_domain_react_app_data_stream'] as $key => $data) {
+                ?>
+                <tr>
+                    <td>
+                        <input
+                                id='aesirx_bi_plugin_options_stream_name_<?php echo $rowNumber;?>'
+                                name='aesirx_bi_plugin_options[aesirx_bi_domain_react_app_data_stream][stream<?php echo $rowNumber;?>][name]'
+                                type='text'
+                                class="regular-text ltr"
+                                value='<?php echo esc_attr($data['name'] ?? '');?>'
+                        />
+                    </td>
+                    <td>
+                        <input
+                                id='aesirx_bi_plugin_options_stream_domain_<?php echo $rowNumber;?>'
+                                name='aesirx_bi_plugin_options[aesirx_bi_domain_react_app_data_stream][stream<?php echo $rowNumber;?>][domain]'
+                                type='text'
+                                class="regular-text ltr"
+                                value='<?php echo esc_attr($data['domain'] ?? '');?>'
+                        />
+                    </td>
+                </tr>
+                <?php
+
+                $rowNumber++;
+            }
+        }
+
+        echo '</table>';
+
+        echo '<input type="hidden" name="row_number" id="aesirx_bi_setting_stream_row" value="' . $rowNumber . '" />';
+        echo '<button type="button" onclick="addNewAesirxBISettingRow()" class="button button-secondary" name="aesirx_bi_stream_add_new_row" id="aesirx_bi_stream_add_new_row">' . __('ADD', 'aesirx-bi') . '</button>';
     }, 'aesirx_bi_plugin', 'aesirx_bi_settings');
 });
 
@@ -46,7 +116,7 @@ add_action('admin_menu', function () {
         'manage_options',
         'aesirx-bi-dashboard',
         function () {
-            include ( 'dashboard.php');
+            include('dashboard.php');
         }
     );
 });
@@ -54,12 +124,57 @@ add_action('admin_menu', function () {
 add_action('admin_enqueue_scripts', function () {
     global $wp;
     $options = get_option('aesirx_bi_plugin_options');
+
+    $streams = [];
+
+    if (!empty($options['aesirx_bi_domain_react_app_data_stream'])) {
+        foreach ($options['aesirx_bi_domain_react_app_data_stream'] as $key => $data) {
+            $stream = new stdClass();
+            $stream->name   = $data['name'];
+            $stream->domain = $data['domain'];
+
+            $streams[] = $stream;
+        }
+    }
     ?>
     <script>
         window.env = {};
+        window.env.REACT_APP_CLIENT_ID = "<?php echo $options['aesirx_bi_domain_react_app_client_id'] ?>";
+        window.env.REACT_APP_CLIENT_SECRET = "<?php echo $options['aesirx_bi_domain_react_app_client_secret'] ?>";
         window.env.REACT_APP_ENDPOINT_URL = "<?php echo $options['aesirx_bi_domain_react_app_endpoint_url'] ?>";
-        window.env.REACT_APP_DATA_STREAM = <?php echo json_encode($options['aesirx_bi_domain_react_app_data_stream']) ?>;
+        window.env.REACT_APP_LICENSE = "<?php echo $options['aesirx_bi_domain_react_app_license'] ?>";
+        window.env.REACT_APP_DATA_STREAM = <?php echo json_encode($streams) ?>;
         window.env.PUBLIC_URL="/wp-content/plugins/aesirx-bi";
+
+        function addNewAesirxBISettingRow(){
+            var table       = document.getElementById('asirx_bi_wp_setting_table');
+            var rowNumber   = parseInt(document.getElementById('aesirx_bi_setting_stream_row').value);
+
+            var row = table.insertRow();
+
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+
+            var streamName = document.createElement("input");
+            streamName.setAttribute("type", "text");
+            streamName.setAttribute("class", "regular-text ltr");
+            streamName.setAttribute("name", "aesirx_bi_plugin_options[aesirx_bi_domain_react_app_data_stream][stream"+ rowNumber +"][name]");
+            streamName.setAttribute("id","aesirx_bi_plugin_options_stream_name_"+rowNumber);
+
+            var streamDomain = document.createElement("input");
+            streamDomain.setAttribute("type", "text");
+            streamDomain.setAttribute("class", "regular-text ltr");
+            streamDomain.setAttribute("name", "aesirx_bi_plugin_options[aesirx_bi_domain_react_app_data_stream][stream"+ rowNumber +"][domain]");
+            streamDomain.setAttribute("id","aesirx_bi_plugin_options_stream_domain_"+rowNumber);
+
+            cell1.appendChild(streamName);
+            cell2.appendChild(streamDomain);
+
+            rowNumber++;
+            document.getElementById('aesirx_bi_setting_stream_row').value = rowNumber;
+            return false;
+        }
+
     </script>
     <%= htmlWebpackPlugin.tags.headTags %>
     <?php
