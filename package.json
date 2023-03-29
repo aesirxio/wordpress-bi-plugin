@@ -1,6 +1,6 @@
 {
   "name": "wordpress-bi-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "AesirX BI Wordpres plugin",
   "private": true,
   "scripts": {
