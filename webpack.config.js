@@ -36,6 +36,7 @@ module.exports = (env, argv) => {
       new ProvidePlugin({
         process: 'process/browser',
       }),
+
       new HtmlWebpackPlugin({
         inject: false,
         filename: pluginPath + '/wp-content/plugins/' + projectname + '/includes/settings.php',
@@ -95,6 +96,7 @@ module.exports = (env, argv) => {
     },
     resolve: {
       alias: aliasData,
+      fallback: { 'process/browser': require.resolve('process/browser') },
     },
   };
 
