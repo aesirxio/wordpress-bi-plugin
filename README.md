@@ -23,6 +23,7 @@ Follow the instructions in: [https://github.com/aesirxio/wordpress-analytics-plu
 ### Download and install plugin to Wordpress
 
 In WP Admin, go to Settings - AesirX BI and config the settings:
+
 1. Replace the `REACT_APP_ENDPOINT_URL` with the link to your `1st party server for AesirX Analytics`.
 1. Replace the `REACT_APP_DATA_STREAM` with the `name` and `domain` to the your data-stream endpoint.
 
@@ -33,7 +34,6 @@ In WP Admin, go to Settings - AesirX BI and config the settings:
 1. In `.env` file, update the `wwwDir` to your WP path.
 1. Run `yarn install`
 1. Watch `yarn watch`, webpack will watch and copy files to WP path(`wwwDir`) when you change the source.
-
 
 ### Release
 

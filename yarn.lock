@@ -1263,6 +1263,15 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.7.tgz#ccab5c8f7dc557a52ca3288c10075c9ccd37fff7"
   integrity sha512-Cr4OjIkipTtcXKjAsm8agyleBuDHvxzeBoa1v543lbv1YaIwQjESsVcmjiWiPEbC1FIeHOG/Op9kdCmAmiS3Kw==
 
+"@prettier/plugin-php@^0.19.4":
+  version "0.19.4"
+  resolved "https://registry.yarnpkg.com/@prettier/plugin-php/-/plugin-php-0.19.4.tgz#054d51fe84bd649da6760181328adea023ba3997"
+  integrity sha512-FiSnSfP+Vo0/HVRXg7ZnEYJEM1eWS+MmsozYtzEdIf8Vg9v/+fwvyXMNayI5SgZ1Y9F5LGhl/EOMWIPzr9c2Xg==
+  dependencies:
+    linguist-languages "^7.21.0"
+    mem "^8.0.0"
+    php-parser "^3.1.3"
+
 "@react-aria/ssr@^3.5.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@react-aria/ssr/-/ssr-3.5.0.tgz#40c1270a75868185f72a88cafe37bd1392f690cb"
@@ -5411,6 +5420,11 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
   integrity sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==
 
+linguist-languages@^7.21.0:
+  version "7.21.0"
+  resolved "https://registry.yarnpkg.com/linguist-languages/-/linguist-languages-7.21.0.tgz#da0184f622367cb092f1f8ba435937a85534f675"
+  integrity sha512-KrWJJbFOvlDhjlt5OhUipVlXg+plUfRurICAyij1ZVxQcqPt/zeReb9KiUVdGUwwhS/2KS9h3TbyfYLA5MDlxQ==
+
 load-json-file@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/load-json-file/-/load-json-file-4.0.0.tgz#2f5f45ab91e33216234fd53adab668eb4ec0993b"
@@ -5581,6 +5595,13 @@ make-dir@^3.0.2:
   dependencies:
     semver "^6.0.0"
 
+map-age-cleaner@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/map-age-cleaner/-/map-age-cleaner-0.1.3.tgz#7d583a7306434c055fe474b0f45078e6e1b4b92a"
+  integrity sha512-bJzx6nMoP6PDLPBFmg7+xRKeFZvFboMrGlxmNj9ClvX53KrmvM5bXFXEWjbz4cz1AFn+jWJ9z/DJSz7hrs0w3w==
+  dependencies:
+    p-defer "^1.0.0"
+
 mdn-data@2.0.28:
   version "2.0.28"
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.28.tgz#5ec48e7bef120654539069e1ae4ddc81ca490eba"
@@ -5605,6 +5626,14 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==
+
+mem@^8.0.0:
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/mem/-/mem-8.1.1.tgz#cf118b357c65ab7b7e0817bdf00c8062297c0122"
+  integrity sha512-qFCFUDs7U3b8mBDPyz5EToEKoAkgCzqquIgi9nkkR9bixxOVOre+09lbuH7+9Kn2NFpm56M3GUWVbU2hQgdACA==
+  dependencies:
+    map-age-cleaner "^0.1.3"
+    mimic-fn "^3.1.0"
 
 memfs@^3.4.3:
   version "3.4.13"
@@ -5682,6 +5711,11 @@ mimic-fn@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-2.1.0.tgz#7ed2c2ccccaf84d3ffcb7a69b57711fc2083401b"
   integrity sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==
+
+mimic-fn@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-3.1.0.tgz#65755145bbf3e36954b949c16450427451d5ca74"
+  integrity sha512-Ysbi9uYW9hFyfrThdDEQuykN4Ey6BuwPD2kpI5ES/nFTDn/98yxYNLZJcgUAKPT/mcrLLKaGzJR9YVxJrIdASQ==
 
 mimic-response@^3.1.0:
   version "3.1.0"
@@ -6009,6 +6043,11 @@ p-cancelable@^3.0.0:
   resolved "https://registry.yarnpkg.com/p-cancelable/-/p-cancelable-3.0.0.tgz#63826694b54d61ca1c20ebcb6d3ecf5e14cd8050"
   integrity sha512-mlVgR3PGuzlo0MmTdk4cXqXWlwQDLnONTAg6sm62XkMJEiRxN3GL3SffkYvqwonbkJBcrI7Uvv5Zh9yjvn2iUw==
 
+p-defer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/p-defer/-/p-defer-1.0.0.tgz#9f6eb182f6c9aa8cd743004a7d4f96b196b0fb0c"
+  integrity sha512-wB3wfAxZpk2AzOfUMJNL+d36xothRSyj8EXOa4f6GMqYDN9BJaaSISbsk+wS9abmnebVw95C2Kb5t85UmpCxuw==
+
 p-limit@^2.2.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.3.0.tgz#3dd33c647a214fdfffd835933eb086da0dc21db1"
@@ -6158,6 +6197,11 @@ path-type@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
+
+php-parser@^3.1.3:
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/php-parser/-/php-parser-3.1.4.tgz#165a594bf9d7fb516b89d1ecf62a361083a482f8"
+  integrity sha512-WUEfH4FWsVItqgOknM67msDdcUAfgPJsHhPNl6EPXzWtX+PfdY282m4i8YIJ9ALUEhf+qGDajdmW+VYqSd7Deg==
 
 picocolors@^0.2.1:
   version "0.2.1"
