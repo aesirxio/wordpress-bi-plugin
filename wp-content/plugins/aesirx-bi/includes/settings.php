@@ -64,6 +64,9 @@ add_action('admin_init', function () {
                                 value='<?php echo esc_attr($data['domain'] ?? '');?>'
                         />
                     </td>
+                    <td>
+                        <button type="button" class="aesirx_bi_plugin_options_stream_delete">Delete</button>
+                    </td>
                 </tr>
                 <?php
 
@@ -140,6 +143,7 @@ add_action('admin_enqueue_scripts', function () {
 
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
 
             var streamName = document.createElement("input");
             streamName.setAttribute("type", "text");
@@ -153,13 +157,31 @@ add_action('admin_enqueue_scripts', function () {
             streamDomain.setAttribute("name", "aesirx_bi_plugin_options[aesirx_bi_domain_react_app_data_stream][stream"+ rowNumber +"][domain]");
             streamDomain.setAttribute("id","aesirx_bi_plugin_options_stream_domain_"+rowNumber);
 
+            var streamDelete = document.createElement("button");
+            streamDelete.setAttribute("type", "button");
+            streamDelete.setAttribute("class", "aesirx_bi_plugin_options_stream_delete");
+            streamDelete.textContent = "Delete";
+
+            streamDelete.addEventListener('click', function (e) {
+                e.target.parentElement.parentElement.remove();
+            })
+
             cell1.appendChild(streamName);
             cell2.appendChild(streamDomain);
+            cell3.appendChild(streamDelete);
 
             rowNumber++;
             document.getElementById('aesirx_bi_setting_stream_row').value = rowNumber;
             return false;
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.aesirx_bi_plugin_options_stream_delete').forEach(function(button) {
+                button.onclick = function(e) {
+                    e.target.parentElement.parentElement.remove();
+                }
+            });
+        });
 
     </script>
     <%= htmlWebpackPlugin.tags.headTags %>
