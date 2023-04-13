@@ -70,6 +70,13 @@ module.exports = (env, argv) => {
                 ),
                 destination: pluginPath + '/wp-content/plugins/' + projectname + '/assets/images',
               },
+              {
+                source: path.resolve(
+                  __dirname,
+                  './node_modules/aesirx-bi-app/public/assets/data/'
+                ),
+                destination: pluginPath + '/wp-content/plugins/' + projectname + '/assets/data',
+              },
             ],
           },
         },
